@@ -1,0 +1,15 @@
+#!/bin/bash
+#lazygit v2 - add commit and push to current branch in one easy command. Opens Vim prompt now.
+
+branch=$(git branch | grep \*)
+branch=${branch//\*\ /}
+
+printf "\nCommitting to $branch. Opening Vim...\n"
+
+git add --all
+git commit
+
+printf "\nClosing Vim...\n"
+
+git push origin $branch
+
